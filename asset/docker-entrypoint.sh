@@ -23,7 +23,16 @@ if [ ! -e "/data/initialized" ]; then
     wget https://github.com/composer/composer/releases/latest/download/composer.phar -O composer.phar
     php composer.phar install -v
     
-    php artisan v2board:install 
+    cat > /data/answerdata << EOF
+${MYSQLHOST}
+${MYSQLDATABASE}
+${MYSQLUSER}
+${MYSQLPASSWORD}
+${ADMIN_EMAIL}
+EOF
+    
+    php artisan v2board:install < /data/answerdata
+    
     touch /data/initialized
 fi
 

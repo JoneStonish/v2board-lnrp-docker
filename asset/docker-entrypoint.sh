@@ -1,12 +1,12 @@
 #!/bin/sh
 
 echo "Waiting for Database"
-until mysql -h"${DB_HOST}" -u"${DB_USERNAME}" -p"${DB_PASSWORD}" &> /dev/null
-do
-    >&2 echo -n "."
-    sleep 1
-done
->&2 echo -e "\nDatabase is up..."
+# until mysql -h"${DB_HOST}" -u"${DB_USERNAME}" -p"${DB_PASSWORD}" &> /dev/null
+# do
+#     >&2 echo -n "."
+#     sleep 1
+# done
+# >&2 echo -e "\nDatabase is up..."
 
 if [ ! -e "/data/initialized" ]; then
     
@@ -23,10 +23,10 @@ if [ ! -e "/data/initialized" ]; then
     php composer.phar install -v
     
     cat > /data/answerdata << EOF
-${DB_HOST}
-${DB_DATABASE}
-${DB_USERNAME}
-${DB_PASSWORD}
+${MYSQLHOST}
+${MYSQLDATABASE}
+${MYSQLUSER}
+${MYSQLPASSWORD}
 ${ADMIN_EMAIL}
 EOF
     

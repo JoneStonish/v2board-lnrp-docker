@@ -8,7 +8,7 @@ echo "Waiting for Database"
 # done
 # >&2 echo -e "\nDatabase is up..."
 echo ${MYSQLHOST}
-echo "${MYSQLHOST}"
+echo "${ADMIN_EMAIL}"
 if [ ! -e "/data/initialized" ]; then
     
 #     cat > /data/tls/tls.cer << EOF

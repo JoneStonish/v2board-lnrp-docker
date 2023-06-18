@@ -7,7 +7,8 @@ echo "Waiting for Database"
 #     sleep 1
 # done
 # >&2 echo -e "\nDatabase is up..."
-
+echo ${MYSQLHOST}
+echo "${MYSQLHOST}"
 if [ ! -e "/data/initialized" ]; then
     
 #     cat > /data/tls/tls.cer << EOF

@@ -24,6 +24,7 @@ if [ ! -e "/data/initialized" ]; then
     
     cat > /data/answerdata << EOF
 ${MYSQLHOST}
+${MYSQLPORT}
 ${MYSQLDATABASE}
 ${MYSQLUSER}
 ${MYSQLPASSWORD}
